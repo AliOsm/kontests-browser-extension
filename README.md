@@ -9,10 +9,11 @@ The extension was developed during the 12-hours [Local Hack Day](https://localha
 Supported sites:
 - Codeforces
 - Codeforces::Gym
-- CS Academy
 - AtCoder
 - CodeChef
+- CS Academy
 - HackerEarth
+- LeetCode
 - A2OJ
 
 Credit goes to [KONTESTS](https://kontests.net) for providing the contests data through their APIs.
