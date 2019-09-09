@@ -7,7 +7,7 @@ $(document).ready(function() {
       $("#wait").css("display", "inline");
       return $.Deferred().resolve().promise();
     }
-   
+
     return $.getJSON("https://www.kontests.net/api/v1/" + sites[idx][1])
     .done(function(data) {
       if(data.length != 0) {
@@ -34,12 +34,22 @@ $(document).ready(function() {
         var table_thead = "<thead class=\"border-top border-bottom\"><tr><th>Name</th><th>Start time</th><th>Duration</th></tr></thead>"
 
         $.each(data, function(idx, val) {
+          temp_text = ""
+
+          if(val["in_24_hours"] === "Yes") {
+            temp_text = "<tr class=\"in-24-hours\">"
+          } else {
+            temp_text = "<tr>"
+          }
+
+          temp_text += "<td><a href=" + val["url"] + ">" + val["name"] + "</a></td><td>" + localTimeFromUtc(val["start_time"]) + "</td><td>" + durationToText(val["duration"]) + "</td></tr>";
+
           if(val["status"] === "BEFORE") {
             ++future;
-            future_tbody += "<tr><td>" + val["name"] + "</td><td>" + val["start_time"] + "</td><td>" + val["duration"] + "</td></tr>";
+            future_tbody += temp_text;
           } else {
             ++running;
-            running_tbody += "<tr><td>" + val["name"] + "</td><td>" + val["start_time"] + "</td><td>" + val["duration"] + "</td></tr>";
+            running_tbody += temp_text;
           }
         });
 
@@ -113,3 +123,34 @@ $(document).ready(function() {
     promiseRecursive(0);
   });
 });
+
+function localTimeFromUtc(utcTime) {
+  if(utcTime === '-') return '-';
+
+  var givenDate = new Date(utcTime);
+  var localDateString = DateFormat.format.date(givenDate, 'dd MMM yyyy HH:mm');
+  return localDateString;
+}
+
+function durationToText(duration) {
+  if(duration === '-') return '-';
+
+  seconds = parseInt(duration);
+
+  days = Math.floor(seconds / (24 * 60 * 60));
+  days_s = 'days';
+  if(days == 1) days_s = 'day';
+  seconds %= (24 * 60 * 60);
+
+  hours = Math.floor(seconds / (60 * 60));
+  hours = ('0' + hours).slice(-2);
+  seconds %= (60 * 60);
+
+  minutes = Math.floor(seconds / 60);
+  minutes = ('0' + minutes).slice(-2);
+
+  if(days > 0)
+    return `${days} ${days_s} and ${hours}:${minutes}`;
+  else
+    return `${hours}:${minutes}`;
+}
