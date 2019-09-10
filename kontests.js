@@ -34,12 +34,12 @@ $(document).ready(function() {
         var table_thead = "<thead class=\"border-top border-bottom\"><tr><th>Name</th><th>Start time</th><th>Duration</th></tr></thead>"
 
         $.each(data, function(idx, val) {
-          temp_text = ""
+          temp_text = "";
 
-          if(val["in_24_hours"] === "Yes") {
-            temp_text = "<tr class=\"in-24-hours\">"
+          if(val["in_24_hours"] == "Yes") {
+            temp_text = "<tr class=\"in-24-hours\">";
           } else {
-            temp_text = "<tr>"
+            temp_text = "<tr>";
           }
 
           temp_text += "<td><a href=" + val["url"] + ">" + val["name"] + "</a></td><td>" + localTimeFromUtc(val["start_time"]) + "</td><td>" + durationToText(val["duration"]) + "</td></tr>";

@@ -28,6 +28,14 @@ html, body {
   animation: rotate 1s linear infinite;
 }
 
+.in-24-hours {
+  background: #DF691A;
+}
+
+.in-24-hours:hover {
+  background: #DF691A !important;
+}
+
 @keyframes rotate {
   100% {
     transform: rotate(360deg);
