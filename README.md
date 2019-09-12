@@ -9,10 +9,13 @@ The extension was developed during the 12-hours [Local Hack Day](https://localha
 Supported sites:
 - Codeforces
 - Codeforces::Gym
+- TopCoder
 - AtCoder
-- CodeChef
 - CS Academy
+- CodeChef
+- HackerRank
 - HackerEarth
+- Kick Start
 - LeetCode
 - A2OJ
 
