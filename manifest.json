@@ -6,7 +6,7 @@
   "permissions": ["https://www.kontests.net/api/*"],
   "manifest_version": 2,
   "name": "KONTESTS",
-  "version": "2.0",
+  "version": "2.1",
 
   "browser_action": {
     "default_icon": "icons/logo.png",
