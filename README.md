@@ -7,17 +7,17 @@ Our vision for KONTESTS is to provide an easy & fast tool for programmers to acc
 The extension was developed during the 12-hours [Local Hack Day](https://localhackday.mlh.io/) 2018 hackathon .
 
 Supported sites:
-- Codeforces
-- Codeforces::Gym
-- TopCoder
-- AtCoder
-- CS Academy
-- CodeChef
-- HackerRank
-- HackerEarth
-- Kick Start
-- LeetCode
-- A2OJ
+1. Codeforces
+2. Codeforces::Gym
+3. TopCoder
+4. AtCoder
+5. CS Academy
+6. CodeChef
+7. HackerRank
+8. HackerEarth
+9. Kick Start
+10. LeetCode
+11. A2OJ
 
 Credit goes to [KONTESTS](https://kontests.net) for providing the contests data through their APIs.
 
