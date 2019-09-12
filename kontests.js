@@ -157,13 +157,17 @@ function constructTable(contests_num, table_tbody, table_type) {
 }
 
 function formatCalendarUrl(url) {
-    url = url.slice(0, 60) + url.slice(61, 63) + url.slice(64, 69) + url.slice(70, 72) + url.slice(73, 75) + url.slice(79);
-    url = url.slice(0, 77) + url.slice(78, 80) + url.slice(81, 86) + url.slice(87, 89) + url.slice(90, 92) + url.slice(96);
-    url = url.replace('#', '%23');
-    url = url.replace('&', '%26');
-    url = url.replace('+', '%2B');
-    url = url.replace('?', '%3F');
-    return url;
+  url = url.slice(0, 60) + url.slice(61, 63) + url.slice(64, 69) + url.slice(70, 72) + url.slice(73, 75) + url.slice(79);
+  url = url.slice(0, 77) + url.slice(78, 80) + url.slice(81, 86) + url.slice(87, 89) + url.slice(90, 92) + url.slice(96);
+  text_index = url.indexOf('&text=') + 6;
+  location_index = url.indexOf('&location=');
+  name = url.slice(text_index, location_index);
+  name = name.replace('#', '%23');
+  name = name.replace('&', '%26');
+  name = name.replace('+', '%2B');
+  name = name.replace('?', '%3F');
+  url = url.slice(0, text_index) + name + url.slice(location_index);
+  return url;
 }
 
 function localTimeFromUtc(utcTime) {
