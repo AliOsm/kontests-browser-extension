@@ -1,7 +1,7 @@
 $(document).ready(function() {
   const urls = [
-    'https://www.kontests.net/api/v1/sites',
-    'https://www.kontests.net/api/v1/all'
+    'https://kontests.net/api/v1/sites',
+    'https://kontests.net/api/v1/all'
   ]
 
   Promise.all(urls.map(url =>
